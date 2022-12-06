@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script type = "text/javascript">
+      function validate() {
+        document.getElementById("nameError").innerHTML ="";
+        document.getElementById("lastnameError").innerHTML ="";
+        document.getElementById("emailError").innerHTML ="";
+        document.getElementById("passwordError").innerHTML = "";
+        let name = document.getElementById("name").value;
+        let sirname = document.getElementById("lastname").value;
+        let pattern = /[^a-z]/gi;
+        let nameresult = name.match(/[^a-z]/gi);
+        let sirnameresult = sirname.match(pattern);
+        let email = document.getElementById("inputEmail").value;
+        var validpattern = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+        var firstPassword = document.getElementById("inputPassword").value;
+        var secondPassword = document.getElementById("confirmPassword").value;
+        var passwordpattern = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
+        //(?=.*[0-9]) - Assert a string has at least one number;
+        //(?=.*[!@#$%^&*]) - Assert a string has at least one special character.
+        if (name == "" || nameresult != null ) {
+            document.getElementById("nameError").innerHTML = "Fields can't be empty and the charecters between a-z are allowed";
+            return false;
+        } 
+        if(sirname == "" || sirnameresult != null){
+            document.getElementById("lastnameError").innerHTML = "Fields can't be empty and the charecters between a-z are allowed";
+            return false;
+        }
+        if (email == "" || email.match(validpattern) == null ) {
+          document.getElementById("emailError").innerHTML = "The email address is invalid";
+          return false;
+        }
+        if(firstPassword.match(passwordpattern) == null ){
+          document.getElementById("passwordError").innerHTML = "It must contain at least a number and an uppercase and a lowercase letter, and at least 8 characters";
+          return false;
+        }
+        if(firstPassword != secondPassword){
+          document.getElementById("confirmPass").innerHTML = "Confirm password don't match the password."
+          return false;
+        }
+
+      }       
+
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body class="text-center">
+    <form class="form-signin" name = "myForm" onsubmit = "return(validate());" action="mailto:shaud.amirpour@gmail.com">
+      <h1 class="h3 mb-3 font-weight-normal">Registeration Form</h1>
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control-sm" id="name" placeholder="Name" name = "name" >
+        <div id="nameError"></div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">LastName</label>
+        <input type="text" class="form-control-sm" id="lastname" placeholder="LastName">
+        <div id="lastnameError"></div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input type="text" id="inputEmail" class="form-control-sm" placeholder="Email address">
+        <div id="emailError"></div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control-sm" id="inputPassword" placeholder="Password">
+        <div id="passwordError"></div>
+      </div>
+      <div class="form-group">
+        <label for="Confirm Password">Confirm Password</label>
+        <input type="password" id="confirmPassword" class="form-control-sm" placeholder="Password" >
+        <div id="confirmPass"></div>
+      </div>
+     
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+  </body>
+</html>

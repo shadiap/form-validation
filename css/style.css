@@ -1,0 +1,50 @@
+@media only screen and (max-width:320px){
+    .form-control-sm{
+        width: 100% !important;
+    }
+label{
+        width: 100%;
+        text-align: left;
+    }
+}
+.form-group{
+    float: left;
+    width: 100%;
+}
+label{
+    float: left;
+}
+.form-signin{
+    box-shadow: 3px 3px 3px 3px darkslategrey;
+    border-radius: 5px;
+}
+.form-control-sm{
+    float: right;
+}
+#inputEmail{
+    height: 36px;
+    width: 250px;
+}
+input{
+    text-align: left;
+    display: inline-block;
+}
+#inputPassword, #lastname{
+    width: 221px;;
+}
+#name{
+    width: 239px;
+}
+#nameError, #lastnameError, #emailError, #confirmPass, #passwordError{
+    color:red;
+    height: 7px;
+    width: 100%;
+    font-size: 12px;
+    float: left;
+    line-height: 11px;
+    padding: 0px;
+    margin: 0px;
+}
+#confirmPassword{
+    width: 160px;
+}
